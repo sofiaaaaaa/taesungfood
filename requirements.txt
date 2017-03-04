@@ -1,0 +1,10 @@
+dj-database-url==0.4.2
+Django==1.10.5
+django-appconf==1.0.2
+django-imagekit==4.0
+olefile==0.44
+pilkit==2.0
+Pillow==4.0.0
+python-decouple==3.0
+six==1.10.0
+Unipath==1.1

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load imagekit %}
+
+{% block content %}
+    <div class="w3-main" style="margin-left:250px">
+        {% comment %}
+        {% generateimage 'imagebox:thumbnail' source=source_file as th -- alt="A picture of Me" id="mypicture" %}
+        <a href="{{ th.url }}">Click to download a cool {{ th.width }} x {{ th.height }} image!</a>
+        <img src="{{ profile.avatar_thumbnail.url }}" />
+        {% endcomment %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+        <br />
+        {% for uploaded_image in uploaded_images %}
+        <div>
+            <p>{{ uploaded_image.description }}</p>
+            <img src="{{ uploaded_image.image.url }}" alt="" />
+            <br />
+            <img src="{{ uploaded_image.thumbnail.url }}" alt="">
+            <br />
+            <img src="{{ uploaded_image.smart.url }}" alt="">
+            <br />
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}태성푸드{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="{% static 'css/w3-colors-vivid.css' %}">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .w3-sidenav a {font-family: "Noto Sans KR", Sans-Serif}
+        body, h1, h2, h3, h4, h5, h6, p, .w3-wide, #logo {font-family: "Noto Sans KR", Sans-Serif}
+        #comment {font-family: "Nanum Brush Script", Sans-Serif; font-size: 40px; font-weight: bold}
+        #english {font-family: "Montserrat", Sans-Serif; text-align: center; font-size: x-large; font-weight: bold}
+    </style>
+</head>
+<body class="w3-content" style="max-width: 1200px">
+<!-- sidevar/menu -->
+{% block sidebar %}
+    {% include 'homepage/sidebar.html' %}
+{% endblock %}
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-blakc w3-xlarge w3-padding-24">
+    <span class="w3-left w3-wide w3-text-grey" id="logo">태성푸드</span>
+    <a href="javascript:void(0)" class="w3-right w3-opennav" onclick="w3_open()"><i class="fa fa-bars"></i> </a>
+</header>
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-wide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Page Content -->
+<div class="w3-main" style="margin-left:250px">
+
+    <!-- Push down content on small screens -->
+    <div class="w3-hide-large" style="margin-top:83px"></div>
+
+    <!-- Top header -->
+    <img src="{% static 'img/taesungbanner.jpg' %}" width="100%" alt="" />
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    {% block footer %}
+        {% include 'homepage/footer.html' %}
+    {% endblock %}
+</div>
+    {% static 'js/app.js' as app %}
+    <script src="{{ app }}"></script>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+               x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}
+            x[myIndex-1].style.display = "block";
+            setTimeout(carousel, 9000);
+        }
+    </script>
+</body>
+</html>
