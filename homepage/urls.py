@@ -10,4 +10,3 @@ urlpatterns = [
     url(r'^products', homepage.display_product_images, name='products'),
     url(r'^document', homepage.model_form_upload, name='document'),
 ]
-

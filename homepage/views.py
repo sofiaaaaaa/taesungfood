@@ -19,19 +19,19 @@ def model_form_upload(request):
     else:
         form = DocumentForm()
         documents = Document.objects.all()
-    return render(request, 'homepage/model_form_upload.html', {
-        'form': form,
-        'documents': documents
-    })
+
+        context = {'form': form,
+                   'documents': documents}
+    return render(request, 'homepage/model_form_upload.html', context)
 
 def display_product_images(request):
     product_images1 = ProductImage.objects.all()
     product_images2 = ProductImage2.objects.all()
     product_images3 = ProductImage3.objects.all()
     product_images4 = ProductImage4.objects.all()
-    return render(request, 'homepage/products.html', {
-        'product_images1': product_images1,
-        'product_images2': product_images2,
-        'product_images3': product_images3,
-        'product_images4': product_images4
-    })
+
+    images_list = {'product_images1': product_images1,
+                   'product_images2': product_images2,
+                   'product_images3': product_images3,
+                   'product_images4': product_images4}
+    return render(request, 'homepage/products.html', images_list)

@@ -45,7 +45,7 @@
     <div class="w3-hide-large" style="margin-top:83px"></div>
 
     <!-- Top header -->
-    <img src="{% static 'img/taesungbanner.jpg' %}" width="100%" alt="" />
+    <img src="{% static 'homepage/img/taesungbanner.jpg' %}" width="100%" alt="" />
 
     {% block content %}
     {% endblock %}
@@ -55,7 +55,7 @@
         {% include 'homepage/footer.html' %}
     {% endblock %}
 </div>
-    {% static 'js/app.js' as app %}
+    {% static 'homepage/js/app.js' as app %}
     <script src="{{ app }}"></script>
     <script>
         var myIndex = 0;

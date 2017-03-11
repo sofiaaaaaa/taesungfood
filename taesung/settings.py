@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'homepage',
-    'imagebox',
+    'homepage.apps.HomepageConfig',
+    'imagebox.apps.ImageboxConfig',
     'imagekit',
+    'rest_framework_swagger',
+    'rest_framework',
+    'restapi.apps.RestapiConfig',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +136,5 @@ STATICFILES_DIR = (
 
 MEDIA_ROOT = PROJECT_DIR.parent.child('media')
 MEDIA_URL = '/media/'
+
+# Django REST framework
