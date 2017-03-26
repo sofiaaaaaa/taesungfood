@@ -138,3 +138,6 @@ MEDIA_ROOT = PROJECT_DIR.parent.child('media')
 MEDIA_URL = '/media/'
 
 # Django REST framework
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10
+}
